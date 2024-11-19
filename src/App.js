@@ -4,22 +4,46 @@ import React from 'react'
 
 class App extends React.Component {
 
-  f1= (a,b, e)=> {
-    console.log(a,b, e)
+  // 定义响应式数据
+  state = {
+    a: 0,
+    obj : {
+      c1: 111,
+      c2: 133,
+      c3: 122
+    }
   }
-  // ● 通过调用bind方法可以获取到一个调用方法
-  // ● 通过匿名箭头函数
-  // ● 方法本身写成箭头函数
-  // 传参需要通过bind方法
-  undefined
+
+  changeVal() {
+    this.state.a = this.state.a + 1;
+    // setState方法是异步执行的，如果需要获取到结果可以在第二个参数中写回调函数
+    this.setState({
+      a: 999,
+      obj: {
+        ...this.state.obj,
+        c1: 2222
+      }
+    }, () => {
+      console.log(this.state.obj.c1)
+    })
+    console.log(this.state.a)
+  }
   render() {
     return <div className="App">
-      {/*方法，也可以写一个方法或者匿名方法*/}
-      <div onClick={this.f1.bind(this, 1, 2 )}>
-
+      <div>
+        {this.state.a}
+      </div>
+      <button onClick={this.changeVal.bind(this)}>改变a</button>
+      <div>
+        {this.state.obj.c1}
+      </div>
+      <div>
+        {this.state.obj.c2}
+      </div>
+      <div>
+        {this.state.obj.c3}
       </div>
     </div>
   }
 }
-
 export default App;
