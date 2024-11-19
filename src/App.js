@@ -2,7 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import React from 'react'
 
-class App extends React.Component {
+// PureComponent 可以解决相同的状态重复更新问题
+class App extends React.PureComponent {
 
   // 定义响应式数据
   state = {
@@ -11,22 +12,25 @@ class App extends React.Component {
       c1: 111,
       c2: 133,
       c3: 122
-    }
+    },
+    arr: [1,2,3]
   }
 
   changeVal() {
     this.state.a = this.state.a + 1;
     // setState方法是异步执行的，如果需要获取到结果可以在第二个参数中写回调函数
+    this.state.arr.push(4)
+    // 数组和对象-》 判断是否改变 -》 内存地址判断的
     this.setState({
       a: 999,
       obj: {
         ...this.state.obj,
         c1: 2222
-      }
+      },
+     arr: this.state.arr
     }, () => {
-      console.log(this.state.obj.c1)
+      console.log(this.state.arr)
     })
-    console.log(this.state.a)
   }
   render() {
     return <div className="App">
@@ -42,6 +46,10 @@ class App extends React.Component {
       </div>
       <div>
         {this.state.obj.c3}
+      </div>
+      数组
+      <div>
+        {this.state.arr}
       </div>
     </div>
   }
