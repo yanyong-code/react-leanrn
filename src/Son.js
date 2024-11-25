@@ -20,6 +20,15 @@ class Son extends React.PureComponent {
                 {this.state.sonMes}
                 <br/>
                 {this.props.sonMes}
+
+                <div>
+                    {this.props.children}
+                </div>
+                <div>
+                    {this.props.a}
+                </div>
+
+                <div>{this.props.scopeslot(this.state.sonMes)}</div>
             </div>
         )
     }
@@ -27,7 +36,7 @@ class Son extends React.PureComponent {
 
 // 类型验证 可以借用proptypes 库
 Son.propTypes = {
-    sonMes: proptyes.string,
+    // sonMes: proptyes.string,
     a: function () {
 
     }

@@ -15,7 +15,9 @@ class App extends React.PureComponent {
     render() {
         return <div className="App">
             I am App
-            <Son sonMsg={this.state.sonMsg}></Son>
+            <Son  sonMsg={this.state.sonMsg} a={<div> I am slot2</div>} scopeslot={(scope) => {return <div> scope {scope}</div>}}>
+                <div>i am slot</div>
+            </Son>
         </div>
     }
 }
