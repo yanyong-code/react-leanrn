@@ -22,11 +22,6 @@ class App extends React.PureComponent {
     this.state.arr.push(4)
     // 数组和对象-》 判断是否改变 -》 内存地址判断的
     this.setState({
-      a: 999,
-      obj: {
-        ...this.state.obj,
-        c1: 2222
-      },
      arr: this.state.arr
     }, () => {
       console.log(this.state.arr)
