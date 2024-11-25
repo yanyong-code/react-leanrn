@@ -8,14 +8,14 @@ class App extends React.PureComponent {
 
     // 定义响应式数据
     state = {
-        inputValue: ""
+        sonMsg: "App 2 Son"
     }
 
 
     render() {
         return <div className="App">
             I am App
-            <Son sonMsg={"App 2 Son"}></Son>
+            <Son sonMsg={this.state.sonMsg}></Son>
         </div>
     }
 }
