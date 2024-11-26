@@ -8,14 +8,19 @@ class App extends React.PureComponent {
 
     // 定义响应式数据
     state = {
-        sonMsg: "App 2 Son"
+        sonMsg: "I am son"
     }
-
+    changeMsg(msg) {
+        console.log(msg)
+        this.setState({
+            sonMsg: msg
+        })
+    }
 
     render() {
         return <div className="App">
             I am App
-            <Son  sonMsg={this.state.sonMsg} a={<div> I am slot2</div>} scopeslot={(scope) => {return <div> scope {scope}</div>}}>
+            <Son msg={this.state.sonMsg} changeMsg={this.changeMsg.bind(this)}>
                 <div>i am slot</div>
             </Son>
         </div>

@@ -15,20 +15,11 @@ class Son extends React.PureComponent {
         return (
             <div>
 
-                I am Son
                 <br/>
-                {this.state.sonMes}
-                <br/>
-                {this.props.sonMes}
-
-                <div>
-                    {this.props.children}
-                </div>
-                <div>
-                    {this.props.a}
-                </div>
-
-                <div>{this.props.scopeslot(this.state.sonMes)}</div>
+                {this.props.msg}
+                <button onClick={() => {
+                    this.props.changeMsg('son')
+                }}>修改</button>
             </div>
         )
     }
