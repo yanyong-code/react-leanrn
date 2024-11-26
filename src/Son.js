@@ -2,6 +2,7 @@
 import React from "react";
 
 import proptyes from "proptypes";
+import './Son.css';
 
 class Son extends React.PureComponent {
 
@@ -11,15 +12,9 @@ class Son extends React.PureComponent {
     }
 
     render() {
-        console.log(this.props)
         return (
-            <div>
-
-                <br/>
-                {this.props.msg}
-                <button onClick={() => {
-                    this.props.changeMsg('son')
-                }}>修改</button>
+            <div className="son">
+               son
             </div>
         )
     }

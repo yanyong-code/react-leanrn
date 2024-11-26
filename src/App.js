@@ -10,6 +10,7 @@ class App extends React.PureComponent {
     state = {
         sonMsg: "I am son"
     }
+
     changeMsg(msg) {
         console.log(msg)
         this.setState({
@@ -19,9 +20,14 @@ class App extends React.PureComponent {
 
     render() {
         return <div className="App">
-            I am App
-            <Son msg={this.state.sonMsg} changeMsg={this.changeMsg.bind(this)}>
-                <div>i am slot</div>
+            <div className="father" style={
+                {
+                    fontSize: "24px"
+                }
+            }>
+                father
+            </div>
+            <Son>
             </Son>
         </div>
     }
