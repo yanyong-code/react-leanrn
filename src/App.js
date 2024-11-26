@@ -20,7 +20,7 @@ class App extends React.PureComponent {
 
     render() {
         return <div className="App">
-            <div className="father" style={
+            <div className="father son" style={
                 {
                     fontSize: "24px"
                 }
